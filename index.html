@@ -13,7 +13,7 @@
   <!-- Mobile Browser Theme Color (Matches Slate-900) -->
   <meta name="theme-color" content="#0f172a">
   
-  <!-- Canonical Link (Lowercase Domain, Uppercase Path to match Repo) -->
+  <!-- Canonical Link -->
   <link rel="canonical" href="https://justice-for-jeff.github.io/Justice/">
   
   <!-- Twitter Card Data -->
@@ -29,7 +29,7 @@
   <meta property="og:url" content="https://justice-for-jeff.github.io/Justice/">
   <meta property="og:image" content="https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1200&auto=format&fit=crop">
   
-  <!-- Favicon (Fully URL Encoded for Maximum Compatibility) -->
+  <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E%E2%9A%96%EF%B8%8F%3C%2Ftext%3E%3C%2Fsvg%3E">
 
   <!-- Performance: Preconnect to Font Servers -->
@@ -46,6 +46,27 @@
     body { font-family: 'Open Sans', sans-serif; }
     h1, h2, h3 { font-family: 'Merriweather', serif; }
   </style>
+
+  <!-- Facebook App Opener Script -->
+  <script>
+    function openFacebookLink(event) {
+      // Check if user is on mobile
+      var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      
+      if (isMobile) {
+        event.preventDefault();
+        // Attempt to open in Facebook App using the deep link scheme
+        // This specific scheme 'fb://facewebmodal/f?href=' is generally reliable for opening URLs inside the app
+        window.location.href = "fb://facewebmodal/f?href=https://www.facebook.com/jeff.patterson.1029";
+        
+        // Fallback: If app doesn't open within 500ms, redirect to the browser link
+        setTimeout(function() {
+          window.location.href = "https://www.facebook.com/jeff.patterson.1029?mibextid=ZbWKwL";
+        }, 500);
+      }
+      // If desktop, standard HTML href behavior applies (opens in new tab)
+    }
+  </script>
 </head>
 
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen relative">
@@ -203,8 +224,9 @@
             Email Jeff
         </a>
         
-        <!-- Facebook Button (Clean Link) -->
+        <!-- Facebook Button with Mobile App Logic (Restored) -->
         <a href="https://www.facebook.com/jeff.patterson.1029?mibextid=ZbWKwL" 
+           onclick="openFacebookLink(event)"
            target="_blank" rel="noopener noreferrer"
            class="inline-flex items-center justify-center bg-blue-800 hover:bg-blue-900 text-white font-bold py-3 px-8 rounded-lg shadow transition transform hover:-translate-y-1">
             <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
