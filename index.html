@@ -59,10 +59,10 @@
         // 1. Try to open the Facebook App
         window.location.href = "fb://facewebmodal/f?href=https://www.facebook.com/jeff.patterson.1029";
         
-        // 2. If app doesn't open in 1.2 seconds, go to browser
+        // 2. If app doesn't open in 1.5 seconds, go to browser
         setTimeout(function() {
           window.location.href = "https://www.facebook.com/jeff.patterson.1029?mibextid=ZbWKwL";
-        }, 1200);
+        }, 1500);
       }
       // If desktop, standard behavior (new tab) applies
     }
@@ -85,7 +85,6 @@
   <div class="max-w-4xl mx-auto py-16 px-6 text-center relative z-10">
     <p class="text-blue-100 font-bold tracking-widest uppercase text-sm mb-4">Pending Federal Litigation</p>
     
-    <!-- Clickable Title to Reset URL -->
     <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight text-white drop-shadow-lg">
       <a href="./" class="hover:text-blue-200 transition duration-300" title="Click to refresh and copy clean link">Stand with Jeff Patterson</a>
     </h1>
@@ -93,7 +92,7 @@
     <p class="text-lg md:text-xl text-gray-200 mb-6 font-light max-w-2xl mx-auto">Public Case Overview — Patterson v. USPS</p>
     
     <p class="text-sm text-gray-300 mb-8 italic">
-      <time datetime="2026-01-31">Last updated: January 31, 2026</time>
+      <time datetime="2026-02-01">Last updated: February 2026</time>
     </p>
 
     <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -112,47 +111,22 @@
   <p>This webpage provides a public-facing summary of allegations and procedural history drawn from publicly filed court records and the plaintiff’s publicly stated allegations in <em>Patterson v. United States Postal Service</em>. The case is active and pending before the United States District Court. All claims are disputed and subject to judicial determination. Nothing on this page constitutes legal advice.</p>
 </aside>
 
-<!-- VIDEO SECTION -->
+<!-- VIDEO SECTION (Updated with New Video) -->
 <div class="mb-14 text-center bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6">
-    <h3 class="text-white text-lg font-bold mb-4">Case Overview: 7-Minute Summary</h3>
+    <h3 class="text-white text-lg font-bold mb-4">Case Overview: 4-Minute Summary</h3>
     
-    <!-- Video Player Container (Click-to-Load + Keyboard Accessible + Focus Ring) -->
-    <div class="relative w-full pb-[56.25%] h-0 rounded-lg overflow-hidden bg-black border border-gray-700 shadow-md group cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-400/60"
-         role="button"
-         tabindex="0"
-         aria-label="Play the case overview video"
-         onclick="this.innerHTML='<iframe class=\'absolute top-0 left-0 w-full h-full\' src=\'https://www.youtube.com/embed/-2hP1J_Si4Q?autoplay=1&playsinline=1\' title=\'YouTube video player\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe>'"
-         onkeydown="if(event.key==='Enter' || event.key===' '){ event.preventDefault(); this.click(); }">
-      
-      <!-- Thumbnail Image -->
-      <img src="https://img.youtube.com/vi/-2hP1J_Si4Q/maxresdefault.jpg" 
-           alt="Video thumbnail — tap to play case overview" 
-           loading="lazy"
-           referrerpolicy="no-referrer"
-           class="absolute top-0 left-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-300">
-      
-      <!-- Play Button (Bottom Right) -->
-      <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 pointer-events-none z-10">
-        <div class="bg-red-600 group-hover:bg-red-700 text-white rounded-full p-3 sm:p-4 shadow-2xl transform group-hover:scale-110 transition duration-300 flex items-center justify-center border-2 border-white">
-          <svg class="w-6 h-6 sm:w-8 sm:h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M8 5v14l11-7z"/>
-          </svg>
-        </div>
-      </div>
-      
-      <!-- Text Hint -->
-      <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white text-sm font-semibold opacity-0 group-hover:opacity-100 transition duration-300 text-left pl-6 pb-6">
-        Tap to Play
-      </div>
+    <!-- Responsive Video Container -->
+    <div class="relative w-full pb-[56.25%] h-0 rounded-lg overflow-hidden bg-black border border-gray-700 shadow-md">
+      <!-- Standard Embed: Ensures 1-click play on all devices -->
+      <iframe 
+        class="absolute top-0 left-0 w-full h-full"
+        src="https://www.youtube.com/embed/BahrHxE4_Ho?rel=0&playsinline=1" 
+        title="Patterson v. USPS Case Summary"
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
     </div>
-    
-    <!-- Noscript Fallback -->
-    <noscript>
-      <p class="text-white text-sm mt-4">
-        JavaScript is disabled. You can watch the video on
-        <a class="underline" href="https://www.youtube.com/watch?v=-2hP1J_Si4Q" target="_blank" rel="noopener noreferrer">YouTube</a>.
-      </p>
-    </noscript>
 </div>
 
 <!-- LEGAL NARRATIVE -->
@@ -204,8 +178,20 @@
 
 </section>
 
+<!-- SHARE BUTTON SECTION -->
+<div class="text-center mt-12 mb-8">
+  <button
+    onclick="navigator.share ? navigator.share({ title: document.title, url: window.location.href }) : navigator.clipboard.writeText(window.location.href).then(() => alert('Link copied to clipboard'))"
+    class="inline-flex items-center gap-2 bg-slate-700 hover:bg-slate-800 text-white text-sm font-semibold py-2 px-6 rounded-full shadow transition transform hover:scale-105"
+    aria-label="Share this public case overview"
+  >
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+    Share This Page
+  </button>
+</div>
+
 <!-- COMMUNITY SUPPORT SECTION -->
-<section id="support" class="mt-16 bg-slate-900 text-white rounded-xl shadow-xl p-8 text-center">
+<section id="support" class="mt-4 bg-slate-900 text-white rounded-xl shadow-xl p-8 text-center">
   <h3 class="text-2xl font-bold mb-4">Community Support</h3>
   <p class="mb-6 text-gray-300 text-sm max-w-2xl mx-auto leading-relaxed">
     Federal litigation is resource-intensive, particularly for individuals proceeding without counsel. Mr. Patterson has established public crowdfunding campaigns to help offset litigation expenses and basic living costs while the case proceeds.
@@ -267,7 +253,7 @@
             Email Jeff
         </a>
         
-        <!-- Facebook Button with Mobile App Logic (Restored) -->
+        <!-- Facebook Button -->
         <a href="https://www.facebook.com/jeff.patterson.1029?mibextid=ZbWKwL" 
            onclick="openFacebookLink(event)"
            target="_blank" rel="noopener noreferrer"
