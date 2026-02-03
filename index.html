@@ -137,46 +137,35 @@
   <main role="main" class="flex-grow">
     <div class="max-w-3xl mx-auto px-6 py-10">
 
-      <!-- VIDEO SECTION (Thumbnail facade + play button bottom-right) -->
-      <div class="mb-14 text-center bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6">
-        <h3 class="text-white text-lg font-bold mb-4">Case Overview: 6:30 Summary</h3>
+<!-- VIDEO SECTION (YouTube thumbnail, no facade image, no custom play button) -->
+<div class="mb-14 text-center bg-gray-900 rounded-lg shadow-lg p-4 sm:p-6">
+  <h3 class="text-white text-lg font-bold mb-4">Case Overview: 6:30 Summary</h3>
 
-        <div
-          id="video-wrapper"
-          class="relative w-full pb-[56.25%] h-0 rounded-lg overflow-hidden bg-black border border-gray-700 shadow-md group cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-400/60"
-          onclick="loadVideo(this)"
-          onkeydown="if(event.key==='Enter' || event.key===' '){ event.preventDefault(); loadVideo(this); }"
-          role="button"
-          tabindex="0"
-          aria-label="Play video"
-        >
-          <!-- Thumbnail (local first; fallback to YouTube thumbnail) -->
-          <img
-            src="justice-cover.gif"
-            alt="Patterson v. USPS case overview video thumbnail"
-            class="absolute inset-0 w-full h-full object-cover transition duration-500 group-hover:scale-105"
-            loading="eager"
-            onerror="this.src='https://img.youtube.com/vi/BahrHxE4_Ho/maxresdefault.jpg';"
-          />
+  <div
+    id="video-wrapper"
+    class="relative w-full pb-[56.25%] h-0 rounded-lg overflow-hidden bg-black border border-gray-700 shadow-md group cursor-pointer focus:outline-none focus:ring-4 focus:ring-blue-400/60"
+    onclick="loadVideo(this)"
+    onkeydown="if(event.key==='Enter' || event.key===' '){ event.preventDefault(); loadVideo(this); }"
+    role="button"
+    tabindex="0"
+    aria-label="Play video"
+  >
+    <!-- YouTube's thumbnail -->
+    <img
+      src="https://img.youtube.com/vi/BahrHxE4_Ho/maxresdefault.jpg"
+      alt="Patterson v. USPS case overview video thumbnail"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      onerror="this.src='https://img.youtube.com/vi/BahrHxE4_Ho/hqdefault.jpg';"
+    />
+  </div>
 
-          <!-- Gradient overlay -->
-          <div class="absolute inset-0 video-overlay"></div>
-
-          <!-- Play button (bottom right) -->
-          <div class="absolute bottom-4 right-4 flex flex-col items-center z-20 pointer-events-none">
-            <div class="bg-red-600 text-white rounded-full p-4 shadow-xl group-hover:bg-red-700 transition transform group-hover:scale-110 border-2 border-white">
-              <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            </div>
-            <p class="text-white font-bold mt-2 text-sm tracking-wide uppercase drop-shadow-md">Watch</p>
-          </div>
-        </div>
-
-        <noscript>
-          <div class="mt-4 text-white text-sm">
-            <a class="underline" href="https://www.youtube.com/watch?v=BahrHxE4_Ho" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
-          </div>
-        </noscript>
-      </div>
+  <noscript>
+    <div class="mt-4 text-white text-sm">
+      <a class="underline" href="https://www.youtube.com/watch?v=BahrHxE4_Ho" target="_blank" rel="noopener noreferrer">Watch on YouTube</a>
+    </div>
+  </noscript>
+</div>
 
       <!-- LEGAL NARRATIVE -->
       <section id="summary" class="prose prose-lg max-w-none text-gray-800 space-y-10">
