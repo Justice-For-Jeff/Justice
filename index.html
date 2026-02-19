@@ -54,7 +54,8 @@
   </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen relative">
+<!-- Added pb-24 to ensure the page can scroll completely past the new sticky bottom bar -->
+<body class="bg-gray-50 text-gray-900 flex flex-col min-h-screen relative pb-20 md:pb-24">
 
   <!-- Accessibility Skip Link -->
   <a class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-white text-blue-800 p-3 rounded shadow-lg z-50 font-bold"
@@ -68,24 +69,33 @@
           style="background-image:url('https://images.unsplash.com/photo-1505664194779-8beaceb93744?q=80&w=1600&auto=format&fit=crop');">
     <span class="sr-only">Background image: courthouse pillars representing justice.</span>
 
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/75 via-slate-950/60 to-slate-950/80"></div>
+    <!-- Lightened overlay gradient -->
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/40 to-slate-950/60"></div>
 
     <div class="relative z-10 max-w-5xl mx-auto px-6 py-16 md:py-20 text-center">
       <p class="text-blue-100 font-bold tracking-widest uppercase text-xs md:text-sm mb-4">
         Verified Federal Litigation • Court-Safe Summary
       </p>
 
-      <h1 class="text-3xl md:text-5xl font-extrabold leading-tight drop-shadow-2xl">
-        I’m Representing Myself in Federal Court
+      <!-- UPDATED HIGH-TRUST HEADLINE -->
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-2xl">
+        Jeff Patterson
       </h1>
+      
+      <p class="mt-3 text-xl md:text-2xl font-semibold text-slate-100/95 drop-shadow">
+        Representing Himself in Federal Court
+      </p>
+      
+      <p class="mt-2 text-sm md:text-base text-blue-200 tracking-wide font-medium drop-shadow">
+        Age 61 • Pro Se Litigant • Active Federal Case
+      </p>
 
-      <p class="mt-5 text-lg md:text-xl text-slate-100/95 max-w-3xl mx-auto drop-shadow">
+      <p class="mt-6 text-lg md:text-xl text-slate-100/95 max-w-3xl mx-auto drop-shadow">
         After losing my job, my income, and my wife, I am asking for the ability to continue.
       </p>
 
-      <div class="mt-6 text-sm md:text-base text-slate-200/95 max-w-3xl mx-auto">
-        <p>I am 61 years old. I am proceeding <em>pro se</em> in a federal civil rights case.</p>
-        <p class="mt-2">In August 2025, my wife Toni passed away. “Losing her changed everything.”</p>
+      <div class="mt-4 text-sm md:text-base text-slate-200/95 max-w-3xl mx-auto">
+        <p>In August 2025, my wife Toni passed away. “Losing her changed everything.”</p>
       </div>
 
       <!-- Hero Actions -->
@@ -110,12 +120,12 @@
           onclick="(async (btn) => {
             const url = document.querySelector('link[rel=canonical]') ? document.querySelector('link[rel=canonical]').href : window.location.href;
             const title = document.title;
-            const originalText = btn.innerText;
+            const originalText = btn.innerHTML;
             try { if (navigator.share) { await navigator.share({ title, url }); return; } } catch (e) { if(e.name !== 'AbortError') return; }
             try {
               await navigator.clipboard.writeText(url);
               btn.innerText = 'Link Copied!';
-              setTimeout(() => btn.innerText = originalText, 2500);
+              setTimeout(() => btn.innerHTML = originalText, 2500);
             } catch (e) { prompt('Copy this link:', url); }
           })(this)"
           class="bg-transparent hover:bg-white/10 border border-white/20 text-white px-6 py-2 rounded-full font-semibold shadow-sm transition text-sm flex items-center gap-2">
@@ -351,7 +361,7 @@
                 <a class="inline-flex items-center justify-center w-full bg-white/10 hover:bg-white/15 border border-white/20 text-white px-6 py-3 rounded-lg font-bold transition"
                    href="https://fnd.us/e2foRe?ref=sh_cEjEk3"
                    target="_blank" rel="noopener noreferrer">
-                  Donate via FundRazr
+                                   Donate via FundRazr
                 </a>
               </div>
               
@@ -363,4 +373,72 @@
                     const url = document.querySelector('link[rel=canonical]') ? document.querySelector('link[rel=canonical]').href : window.location.href;
                     const title = document.title;
                     const originalText = btn.innerHTML;
-                    try { if (navigator.share) { await navigator.share({ title, url }); return; } } catch (e) { if(e.n
+                    try { if (navigator.share) { await navigator.share({ title, url }); return; } } catch (e) { if(e.name !== 'AbortError') return; }
+                    try {
+                      await navigator.clipboard.writeText(url);
+                      btn.innerText = 'Link Copied!';
+                      setTimeout(() => btn.innerHTML = originalText, 2500);
+                    } catch (e) { prompt('Copy this link:', url); }
+                  })(this)"
+                  class="w-full bg-transparent hover:bg-white/10 border border-white/30 text-white px-6 py-3 rounded-lg font-bold transition flex items-center justify-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                  Share Jeff’s Story
+                </button>
+                <p class="text-xs text-slate-300 mt-2 text-center">
+                  If you cannot donate, sharing makes a meaningful difference.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <p class="mt-8 text-sm text-slate-300">
+            Disclaimer: This page summarizes allegations in active federal litigation. The USPS denies the allegations. No findings have been made by the court.
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t border-gray-200">
+    <div class="max-w-5xl mx-auto px-6 py-8 text-sm text-gray-600">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <p>© <span id="year"></span> Jeff Patterson — Justice for Jeff</p>
+        <div class="flex flex-wrap gap-3">
+          <a class="underline hover:text-gray-900" href="https://gofund.me/4f8c46215" target="_blank" rel="noopener noreferrer">GoFundMe</a>
+          <a class="underline hover:text-gray-900" href="https://fnd.us/e2foRe?ref=sh_cEjEk3" target="_blank" rel="noopener noreferrer">FundRazr</a>
+          <a class="underline hover:text-gray-900" href="https://www.pacermonitor.com/public/case/58465402/Jeff_Patterson_v_United_States_Postal_Service_et_al" target="_blank" rel="noopener noreferrer">PACER Monitor</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY BOTTOM ACTION BAR (Visible on all devices) -->
+  <div class="fixed bottom-0 inset-x-0 z-50 border-t border-gray-200 bg-white/95 backdrop-blur shadow-[0_-10px_15px_-3px_rgba(0,0,0,0.05)]">
+    <div class="max-w-5xl mx-auto px-3 py-3 flex items-center justify-center gap-2 sm:gap-4">
+      <a href="https://gofund.me/4f8c46215"
+         target="_blank" rel="noopener noreferrer"
+         class="flex-1 max-w-[300px] text-center bg-red-600 hover:bg-red-700 text-white font-extrabold py-3 rounded-lg shadow-lg transition text-sm sm:text-base">
+        Donate
+      </a>
+      <button
+        type="button"
+        onclick="(async (btn) => { const url = document.querySelector('link[rel=canonical]') ? document.querySelector('link[rel=canonical]').href : window.location.href; const title = document.title; const originalText = btn.innerHTML; try { if (navigator.share) { await navigator.share({ title, url }); return; } } catch (e) { if(e.name !== 'AbortError') return; } try { await navigator.clipboard.writeText(url); btn.innerText = 'Copied!'; setTimeout(() => btn.innerHTML = originalText, 2500); } catch (e) { prompt('Copy this link:', url); } })(this)"
+        class="px-3 sm:px-6 py-3 rounded-lg border border-gray-300 font-bold text-gray-800 hover:border-gray-500 hover:bg-gray-50 transition text-sm sm:text-base">
+        Share
+      </button>
+      <a href="https://www.pacermonitor.com/public/case/58465402/Jeff_Patterson_v_United_States_Postal_Service_et_al"
+         target="_blank" rel="noopener noreferrer"
+         class="px-3 sm:px-6 py-3 rounded-lg border border-gray-300 font-bold text-gray-800 hover:border-gray-500 hover:bg-gray-50 transition text-sm sm:text-base">
+        Verify
+      </a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
